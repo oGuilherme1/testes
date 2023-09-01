@@ -32,7 +32,7 @@
 
             <div class="form-group col-md-4">
                 {{Form::label('Data de nascimento*',null,['class'=>'control-label'])}}
-                {{Form::text('data_nascimento', isset($usuario)?$usuario->data_nascimento:null,['class'=>'disableVisualize form-control dataGjigo maskData', 'id' =>'data_nascimento'])}}
+                {{Form::text('data_nascimento', isset($usuario)?$dataDesformatada:null,['class'=>'disableVisualize form-control dataGjigo maskData', 'id' =>'data_nascimento'])}}
             </div>
 
             <div class="form-group col-md-4">
@@ -83,15 +83,21 @@
 
 
         @if ($action == 'add' || $action == 'edit')
-
-            <button id="btn-add-edit"  class="btn btn-primary float-right" style="margin-top: 40px;">
+            
+            <a href='{{route('usuario.GridView')}}' class="btn btn-secondary float-right viaAjaxPost" style="margin-top: 40px;">
+                <i class="fa fa-btn fa-backward"></i>
+                Voltar
+            </a>
+            
+            <button id="btn-add-edit"  class="btn btn-primary float-right" style="margin-top: 40px;  margin-right: 25px;">
                 <i class="fa fa-btn fa-envelope"></i>
                 Salvar
             </button>
 
 
+
         @elseif ($action == 'view')
-            <a href='{{route('usuario.GridView')}}' class="btn btn-secondary float-right viaAjaxPost" style="margin-top: 40px;">
+            <a href='{{route('usuario.GridView')}}' class="btn btn-secondary float-right viaAjaxPost" style="margin-top: 40px; ">
                 <i class="fa fa-btn fa-backward"></i>
                 Voltar
             </a>

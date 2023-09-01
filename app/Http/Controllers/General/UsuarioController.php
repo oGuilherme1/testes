@@ -36,6 +36,7 @@ class UsuarioController extends Controller
     {
 
         $usuario = User::find($id);
+        $dataDesformatada = date('d/m/Y', strtotime($usuario->data_nascimento));
 
         if ($usuario->id == 1){
             return response()->json(['success' => false,'message' => 'Este usuário NÃO pode ser editado!']);
@@ -44,7 +45,8 @@ class UsuarioController extends Controller
         return view('general.usuario.UsuarioForm', [
             'action' => 'edit',
             'usuario' => $usuario,
-            'perfis' => $perfis
+            'perfis' => $perfis,
+            'dataDesformatada' => $dataDesformatada
 
         ]);
     }
@@ -55,10 +57,12 @@ class UsuarioController extends Controller
 
         $usuario = User::find($id);
         $perfis = PerfilUsuario::all();
+        $dataDesformatada = date('d/m/Y', strtotime($usuario->data_nascimento));
         return view('general.usuario.UsuarioForm', [
             'action' => 'view',
             'usuario' => $usuario,
-            'perfis' => $perfis
+            'perfis' => $perfis,
+            'dataDesformatada' => $dataDesformatada
 
         ]);
     }
@@ -131,6 +135,7 @@ class UsuarioController extends Controller
             return response()->json(['success' => false, 'message' => 'O email informado pertence à outro usuário.']);
         }
 
+        $dataFormatada = date('Y-d-m', strtotime($request->data_nascimento));
         //IMPORTANTE! - INICIALIZA-SE A TRANSAÇÃO
         DB::beginTransaction();
         try {
@@ -143,6 +148,9 @@ class UsuarioController extends Controller
                 $obj->password = Hash::make($request->senha);
             }
 
+            $obj->cpf = $request->cpf;
+            $obj->data_nascimento = $dataFormatada;
+            $obj->nome_da_mae = $request->nome_da_mae;
             $obj->email = $request->email;
             $obj->ativo = 1;
             $obj->perfil_id = $request->perfil_id;

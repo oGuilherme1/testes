@@ -30,7 +30,7 @@ class AddInfoUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('CPF');
             $table->dropColumn('Data nascimento');
-            $table->string('Nome_da_mae');
+            $table->dropColumn('Nome_da_mae');
         });
     }
 }

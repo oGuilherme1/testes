@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\General\Mikrotik;
 use App\Models\General\PerfilUsuario;
+use App\Models\General\Matricula;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -75,11 +76,19 @@ class User extends Authenticatable
         return $this->belongsTo(PerfilUsuario::class, 'perfil_id','id');
     }
 
+
     public function isAdmin(){
         if ($this->perfil->super){
             return true;
         }
         return false;
+    }
+
+    public function matriculaUsuarios()
+    {
+
+        return $this->hasOne(Matricula::class, 'user_id', 'id');
+
     }
 
 

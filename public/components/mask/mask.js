@@ -2,7 +2,6 @@
 mask();
 
 function mask() {
-    console.log('ta aqui')
     $('.maskCelular').inputmask({
         mask: "(99) 99999-9999",
         showMaskOnHover: false
@@ -19,5 +18,17 @@ function mask() {
         mask: "99/99/9999"
         
     })
+    $('.maskMonetario').inputmask('decimal', {
+        'alias': 'numeric',
+        'groupSeparator': ',',
+        'autoGroup': true,
+        'digits': 2,
+        'radixPoint': ".",
+        'digitsOptional': false,
+        'allowMinus': false,
+        'placeholder': '0'
+});
+
+
 }
 

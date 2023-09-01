@@ -89,10 +89,10 @@
             </a>
             <div class="collapse multi-collapse" id="multiCollapseResolucoes">
                 <ul class="side-submenu">
-                    <li><a href="{{route('atividades.ResolucaoPendente')}}" class="viaAjaxPost">Resolução Atividade #1</a></li>
-                    <li><a href="{{route('atividades.ResolucaoPendente')}}" class="viaAjaxPost">Resolução Atividade #2</a></li>
-                    <li><a href="{{route('atividades.ResolucaoPendente')}}" class="viaAjaxPost">Resolução Atividade #3</a></li>
-                    <li><a href="{{route('atividades.ResolucaoPendente')}}" class="viaAjaxPost">Resolução Atividade #4</a></li>
+                    <li><a href="{{route('atividades.resolucao1')}}" class="viaAjaxPost">Resolução Atividade #1</a></li>
+                    <li><a href="{{route('atividades.resolucao2')}}" class="viaAjaxPost">Resolução Atividade #2</a></li>
+                    <li><a href="{{route('atividades.resolucao3')}}" class="viaAjaxPost">Resolução Atividade #3</a></li>
+                    <li><a href="{{route('atividades.resolucao4')}}" class="viaAjaxPost">Resolução Atividade #4</a></li>
                     <li><a href="{{route('atividades.ResolucaoPendente')}}" class="viaAjaxPost">Resolução Atividade #5</a></li>
                     <li><a href="{{route('atividades.ResolucaoPendente')}}" class="viaAjaxPost">Resolução Atividade #6</a></li>
 
